@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Virtual Document</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="./index.js"></script>
+  </head>
+  <body id="body">
+    <form id="form" autocomplete="off">
+      <div class="input-container ic1">
+        <input
+          class="input"
+          type="text"
+          placeholder=" "
+          name="fname"
+          id="fname"
+          onclick="fnType('fname')"
+          required
+        />
+        <div class="cut"></div>
+        <label for="fname" class="placeholder">First name</label>
+      </div>
+      <div class="input-container ic2">
+        <input
+          class="input"
+          type="text"
+          placeholder=" "
+          name="lname"
+          id="lname"
+          onclick="fnType('lname')"
+        />
+        <div class="cut"></div>
+        <label for="lname" class="placeholder">Last name</label>
+      </div>
+      <div class="input-container ic2">
+        <input
+          class="input"
+          type="text"
+          placeholder=" "
+          name="email"
+          id="email"
+          onclick="fnType('email')"
+        />
+        <div class="cut cut-short"></div>
+        <label for="email" class="placeholder">Email</label>
+      </div>
+      <button type="submit" id="submit" class="submit">SUBMIT</button>
+    </form>
+
+    <button class="virtual-button" onclick="activeVirtualKeyboard()">
+      VIRTUAL KEYBOARD
+    </button>
+
+    <div class="keys" id="keyboard">
+      <div class="options">
+        <div>
+          <label>Keyboard BG</label>
+          <input
+            oninput="changeKeyboardColor(this.value)"
+            class="color"
+            type="color"
+          />
+        </div>
+        <div>
+          <label>Key BG</label>
+          <input
+            oninput="changeKeyBackGround(this.value)"
+            class="color"
+            type="color"
+          />
+        </div>
+        <div>
+          <label>Key Color</label>
+          <input
+            oninput="changeKeyColor(this.value)"
+            class="color"
+            type="color"
+          />
+        </div>
+      </div>
+      <div class="numbers_row">
+        <div id="backtick" class="key" onclick="input('`')">`</div>
+        <div class="key selected" onclick="input('1')" onmouseover="hover(1)">
+          1
+        </div>
+        <div class="key selected" onclick="input('2')" onmouseover="hover(2)">
+          2
+        </div>
+        <div class="key selected" onclick="input('3')" onmouseover="hover(3)">
+          3
+        </div>
+        <div class="key selected" onclick="input('4')" onmouseover="hover(4)">
+          4
+        </div>
+        <div class="key selected" onclick="input('5')" onmouseover="hover(5)">
+          5
+        </div>
+        <div class="key selected" onclick="input('6')" onmouseover="hover(6)">
+          6
+        </div>
+        <div class="key selected" onclick="input('7')" onmouseover="hover(7)">
+          7
+        </div>
+        <div class="key selected" onclick="input('8')" onmouseover="hover(8)">
+          8
+        </div>
+        <div class="key selected" onclick="input('9')" onmouseover="hover(9)">
+          9
+        </div>
+        <div class="key selected" onclick="input('0')" onmouseover="hover(0)">
+          0
+        </div>
+        <div class="key" onclick="input('-')" id="minus">-</div>
+        <div class="key" onclick="input('=')" id="equal-to">=</div>
+        <div id="backspace" class="key" onclick="input('backspace')">
+          <span id="backspace-icon">&larr;</span> backspace
+        </div>
+      </div>
+
+      <div class="alpha_first_row">
+        <div id="tab" class="key" onclick="input('tab')">
+          tab<span id="span-icon">&#8633;</span>
+        </div>
+        <div class="key selected" onclick="input('q')" onmouseover="hover('Q')">
+          Q
+        </div>
+        <div class="key selected" onclick="input('w')" onmouseover="hover('W')">
+          W
+        </div>
+        <div class="key selected" onclick="input('e')" onmouseover="hover('E')">
+          E
+        </div>
+        <div class="key selected" onclick="input('r')" onmouseover="hover('R')">
+          R
+        </div>
+        <div class="key selected" onclick="input('t')" onmouseover="hover('T')">
+          T
+        </div>
+        <div class="key selected" onclick="input('y')" onmouseover="hover('Y')">
+          Y
+        </div>
+        <div class="key selected" onclick="input('u')" onmouseover="hover('U')">
+          U
+        </div>
+        <div class="key selected" onclick="input('i')" onmouseover="hover('I')">
+          I
+        </div>
+        <div class="key selected" onclick="input('o')" onmouseover="hover('O')">
+          O
+        </div>
+        <div class="key selected" onclick="input('p')" onmouseover="hover('P')">
+          P
+        </div>
+        <div class="key" onclick="input('[') " id="opensmallbracket">
+          <span id="openbigbracket" class="top-design">{</span>[
+        </div>
+        <div class="key" onclick="input(']')" id="bracket">
+          <span id="openbigbracket" class="top-design">}</span>]
+        </div>
+        <div id="slash" class="key top-design" onclick="input('\\')">
+          <span id="openbigbracket" class="top-design">|</span>\
+        </div>
+      </div>
+
+      <div class="alpha_second_row">
+        <div id="capslock" class="key" onclick="input('caps-lock')">
+          caps lock
+          <div id="_dot"></div>
+        </div>
+        <div class="key selected" onclick="input('a')" onmouseover="hover('A')">
+          A
+        </div>
+        <div class="key selected" onclick="input('s')" onmouseover="hover('S')">
+          S
+        </div>
+        <div class="key selected" onclick="input('d')" onmouseover="hover('D')">
+          D
+        </div>
+        <div class="key selected" onclick="input('f')" onmouseover="hover('F')">
+          F
+        </div>
+        <div class="key selected" onclick="input('g')" onmouseover="hover('G')">
+          G
+        </div>
+        <div class="key selected" onclick="input('h')" onmouseover="hover('H')">
+          H
+        </div>
+        <div class="key selected" onclick="input('j')" onmouseover="hover('J')">
+          J
+        </div>
+        <div class="key selected" onclick="input('k')" onmouseover="hover('K')">
+          K
+        </div>
+        <div class="key selected" onclick="input('l')" onmouseover="hover('L')">
+          L
+        </div>
+        <div class="key" onclick="input(';')" id="semicolon">
+          <span id="colon" class="top-design">:</span>;
+        </div>
+        <div class="key" onclick="input(`'`)" id="singlecomma">
+          <span id="doublecomma" class="top-design">"</span>'
+        </div>
+        <div id="enter" class="key" onclick="input('enter')">
+          <span id="sign" class="top-design">&#8617;</span>enter
+        </div>
+      </div>
+
+      <div class="alpha_third_row">
+        <div id="left-shift" class="key" onclick="input('shift')">
+          shift<span id="shift-icon">&uarr;</span>
+        </div>
+        <div class="key selected" onclick="input('z')" onmouseover="hover('Z')">
+          Z
+        </div>
+        <div class="key selected" onclick="input('x')" onmouseover="hover('X')">
+          X
+        </div>
+        <div class="key selected" onclick="input('c')" onmouseover="hover('C')">
+          C
+        </div>
+        <div class="key selected" onclick="input('v')" onmouseover="hover('V')">
+          V
+        </div>
+        <div class="key selected" onclick="input('b')" onmouseover="hover('B')">
+          B
+        </div>
+        <div class="key selected" onclick="input('n')" onmouseover="hover('N')">
+          N
+        </div>
+        <div class="key selected" onclick="input('m')" onmouseover="hover('M')">
+          M
+        </div>
+        <div class="key" onclick="input(',')" id="comma">
+          <span id="doublecomma" class="top-design"><</span>,
+        </div>
+        <div class="key" onclick="input('.')" id="fullstop">
+          <span id="doublecomma" class="top-design">></span>.
+        </div>
+        <div class="key" onclick="input('/')" id="frontslash">
+          <span id="doublecomma" class="top-design">?</span>/
+        </div>
+        <div id="right-shift" class="key" onclick="input('shift')">
+          <span id="shift-icon">&uarr;</span>shift
+        </div>
+      </div>
+
+      <div class="last_row">
+        <div class="key" onclick="input('@')">@</div>
+        <div id="spacebar" class="key" onclick="input('spacebar')"></div>
+      </div>
+    </div>
+  </body>
+</html>
