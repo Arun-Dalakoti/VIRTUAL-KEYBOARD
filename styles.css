@@ -462,7 +462,6 @@ body {
 @media (max-width: 600px) {
   #keyboard {
     height: 350px;
-    /* margin-top: 160px; */
     margin-bottom: 0;
   }
   .keys {
