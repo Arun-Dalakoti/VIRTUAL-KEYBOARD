@@ -3,12 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=0" />
     <title>Virtual Document</title>
     <link rel="stylesheet" href="./styles.css" />
     <script defer src="./index.js"></script>
   </head>
   <body id="body">
+    <div class="display-form">
+      <h1 id="display-h1">DATA ENTERED</h1>
+      <h1 id="display-fname">First Name:</h1>
+      <h1 id="display-lname">Last Name:</h1>
+      <h1 id="display-email">Email:</h1>
+    </div>
     <form id="form" autocomplete="off">
       <div class="input-container ic1">
         <input
@@ -50,7 +56,11 @@
       <button type="submit" id="submit" class="submit">SUBMIT</button>
     </form>
 
-    <button class="virtual-button" onclick="activeVirtualKeyboard()">
+    <button
+      class="virtual-button"
+      id="virtual"
+      onclick="activeVirtualKeyboard()"
+    >
       VIRTUAL KEYBOARD
     </button>
 

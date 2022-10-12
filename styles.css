@@ -14,6 +14,25 @@ body {
   display: none;
 }
 
+.display-form {
+  display: none;
+}
+
+.display-form-1 {
+  display: grid;
+  padding: 30px;
+  margin: 200px auto;
+  background-color: black;
+  color: white;
+  gap: 5px;
+  font-size: 15px;
+}
+
+#display-h1 {
+  font-size: 50px;
+  margin-bottom: 40px;
+}
+
 .keys {
   display: grid;
   gap: 7px;
@@ -64,7 +83,7 @@ body {
 
 /*HAPTICS  */
 
-.selected:hover:before {
+/* .selected:hover:before {
   content: attr(data-content);
   color: red;
   display: block;
@@ -75,7 +94,7 @@ body {
   margin-top: -70%;
   margin-left: 15%;
   opacity: 0.7;
-}
+} */
 
 #tab {
   width: 100px;
@@ -316,13 +335,13 @@ body {
 }
 
 @media (max-width: 1066px) {
-  .selected:hover:before {
+  /* .selected:hover:before {
     width: 27px;
     height: 27px;
     font-size: 25px;
     margin-top: -70%;
     margin-left: 7%;
-  }
+  } */
 
   #keyboard {
     height: 340px;
@@ -362,9 +381,9 @@ body {
 }
 
 @media (max-width: 823px) {
-  .selected:hover:before {
+  /* .selected:hover:before {
     font-size: 20px;
-  }
+  } */
 
   #keyboard {
     height: 300px;
@@ -548,11 +567,11 @@ body {
     margin-top: 50px;
   }
 
-  .selected:hover:before {
+  /* .selected:hover:before {
     width: 40px;
     height: 40px;
 
     margin-top: -70%;
     margin-left: 0;
-  }
+  } */
 }

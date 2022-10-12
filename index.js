@@ -8,8 +8,43 @@ const form = document.getElementById("form");
 let preValue = false;
 let capslock = false;
 let shift = false;
-const submit = document.getElementById("submit");
 let fnames;
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  var first_name = document.getElementById("fname").value;
+  // console.log(name);
+
+  var last_name = document.getElementById("lname").value;
+  var _email = document.getElementById("email").value;
+
+  // console.log(first_name, last_name, _email);
+
+  document.getElementById("form").style.display = "none";
+  document.getElementById("keyboard").style.display = "none";
+  document.getElementById("virtual").style.display = "none";
+  // document.body.style.display = "none";
+
+  // document.getElementById("second-form").style.display = "none";
+  // console.log(document.querySelector(".display-form-2"));
+
+  document.getElementsByClassName("display-form")[0].className =
+    "display-form-1";
+  // console.log(
+  //   document.querySelector(".display-form-2").removeAttribute("display-form")
+  // );
+
+  // document.getElementById("display-form").style.className = "display-form-1";
+
+  document.getElementById("display-fname").innerHTML += " " + first_name;
+  document.getElementById("display-lname").innerHTML += " " + last_name;
+  document.getElementById("display-email").innerHTML += " " + _email;
+  // document.getElementById("display-email").style.backgroundColor = "green";
+  // let h1 = document.createElement("h1");
+  // h1.innerHTML = first_name;
+  // document.body.appendChild(h1);
+});
 
 var script = document.createElement("script");
 script.src = "https://code.jquery.com/jquery-3.6.0.min.js";
@@ -161,12 +196,12 @@ function activeVirtualKeyboard() {
 }
 
 function hover(key1) {
-  $(".selected").hover(
-    function () {
-      $(this).attr("data-content", key1);
-    },
-    function () {
-      $(this).attr("data-content", "");
-    }
-  );
+  // $(".selected").hover(
+  //   function () {
+  //     $(this).attr("data-content", key1);
+  //   },
+  //   function () {
+  //     $(this).attr("data-content", "");
+  //   }
+  // );
 }
