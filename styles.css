@@ -81,6 +81,10 @@ body {
   position: relative;
 }
 
+#capslock-sign {
+  margin-left: 20px;
+}
+
 /*HAPTICS  */
 
 /* .selected:hover:before {
@@ -431,7 +435,7 @@ body {
   #capslock {
     width: 40px;
     font-size: 0px;
-    color: #3c3c3c;
+    /* color: #3c3c3c; */
   }
 
   #backspace {
@@ -476,6 +480,11 @@ body {
     font-size: 20px;
     padding-left: 5px;
   }
+
+  #capslock-sign {
+    font-size: 20px;
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 600px) {
@@ -483,6 +492,7 @@ body {
     height: 350px;
     margin-bottom: 0;
   }
+
   .keys {
     width: 100%;
   }
@@ -528,7 +538,11 @@ body {
   }
 
   #capslock {
-    width: 30px;
+    width: 50px;
+  }
+
+  body {
+    width: 100%;
   }
 
   .alpha_second_row {
