@@ -22,15 +22,20 @@ body {
   display: grid;
   padding: 30px;
   margin: 200px auto;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.267);
   color: white;
   gap: 5px;
   font-size: 15px;
+  border-radius: 10px;
 }
 
 #display-h1 {
   font-size: 50px;
   margin-bottom: 40px;
+}
+
+.on-shift-active {
+  border: 3px solid rgb(255, 0, 179);
 }
 
 .keys {
@@ -79,6 +84,8 @@ body {
   cursor: pointer;
   transition: background-color 0.3s ease-in;
   position: relative;
+  box-shadow: -6px 5px 5px -3px rgb(71, 52, 52);
+  /* box-shadow:  blue; */
 }
 
 #capslock-sign {
@@ -176,7 +183,7 @@ body {
   width: 8px;
   display: inline-block;
   position: absolute;
-  background-color: rgb(226, 112, 36);
+  background-color: rgb(255, 255, 255);
   top: 10%;
   right: 5%;
   border-radius: 50%;

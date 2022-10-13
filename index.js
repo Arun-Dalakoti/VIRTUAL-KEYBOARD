@@ -7,7 +7,8 @@ keyboard.style.opacity = 0;
 const form = document.getElementById("form");
 let preValue = false;
 let capslock = false;
-let shift = false;
+let left_shift = false;
+let right_shift = false;
 let fnames;
 
 form.addEventListener("submit", function (e) {
@@ -152,28 +153,46 @@ function input(key) {
     key = "";
   }
 
-  if (key === ";" && shift === true) {
+  if (key === ";" && (left_shift || right_shift)) {
     key = ":";
-  } else if (key === "'" && shift === true) {
+  } else if (key === "'" && (left_shift || right_shift)) {
     key = `"`;
-  } else if (key === "," && shift === true) {
+  } else if (key === "," && (left_shift || right_shift)) {
     key = "<";
-  } else if (key === "." && shift === true) {
+  } else if (key === "." && (left_shift || right_shift)) {
     key = ">";
-  } else if (key === "/" && shift === true) {
+  } else if (key === "/" && (left_shift || right_shift)) {
     key = "?";
-  } else if (key === "[" && shift === true) {
+  } else if (key === "[" && (left_shift || right_shift)) {
     key = "{";
-  } else if (key === "]" && shift === true) {
+  } else if (key === "]" && (left_shift || right_shift)) {
     key = "}";
-  } else if (key === "\\" && shift === true) {
+  } else if (key === "\\" && (left_shift || right_shift)) {
     key = "|";
   }
 
-  if (key.toLowerCase() === "shift" && shift === true) {
-    shift = false;
-  } else if (key.toLowerCase() === "shift" && shift === false) {
-    shift = true;
+  if (key.toLowerCase() === "right-shift" && right_shift === true) {
+    document.getElementById("right-shift").classList.remove("on-shift-active");
+    // console.log(document.getElementById("right-shift"));
+    right_shift = false;
+    key = "";
+  } else if (key.toLowerCase() === "right-shift" && right_shift === false) {
+    document.getElementById("right-shift").classList.add("on-shift-active");
+    // console.log(document.getElementById("right-shift"));
+    right_shift = true;
+    key = "";
+  }
+
+  if (key.toLowerCase() === "left-shift" && left_shift === true) {
+    document.getElementById("left-shift").classList.remove("on-shift-active");
+    // console.log(document.getElementById("left-shift"));
+    left_shift = false;
+    key = "";
+  } else if (key.toLowerCase() === "left-shift" && left_shift === false) {
+    document.getElementById("left-shift").classList.add("on-shift-active");
+    // console.log(document.getElementById("left-shift"));
+    left_shift = true;
+    key = "";
   } else if (key.toLowerCase() === "enter") {
     enterFunction();
   } else if (key.toLowerCase() === "backspace") {
