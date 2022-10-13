@@ -135,10 +135,21 @@ function spacebarFunction() {
 }
 
 function input(key) {
+  if (key.toLowerCase() === "tab") {
+    tabFunction();
+    key = "";
+  }
+
   if (key !== "caps-lock") {
     if (capslock === true) {
       key = key.toUpperCase();
     }
+  }
+
+  if (key.toLowerCase() === "spacebar") {
+    spacebarFunction();
+    console.log(key);
+    key = "";
   }
 
   if (key === ";" && shift === true) {
@@ -159,18 +170,15 @@ function input(key) {
     key = "|";
   }
 
-  if (key === "shift" && shift === true) {
+  if (key.toLowerCase() === "shift" && shift === true) {
     shift = false;
-  } else if (key === "shift" && shift === false) {
+  } else if (key.toLowerCase() === "shift" && shift === false) {
     shift = true;
-  } else if (key === "spacebar") {
-    spacebarFunction();
-  } else if (key === "tab") {
-    tabFunction();
-  } else if (key === "enter") {
+  } else if (key.toLowerCase() === "enter") {
     enterFunction();
-  } else if (key === "backspace") {
+  } else if (key.toLowerCase() === "backspace") {
     backspaceFunction();
+    key = "";
   } else if (key === "caps-lock") {
     capslockFunction();
   } else if (type === "fname") {
